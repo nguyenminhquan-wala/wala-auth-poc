@@ -18,4 +18,13 @@ filesToCopy.forEach(file => {
 
   // Copy file
   fs.copyFileSync(source, dest)
+})
+
+// Remove any SQL files from dist directory
+const distDir = path.join(__dirname, 'dist')
+const files = fs.readdirSync(distDir)
+files.forEach(file => {
+  if (file.endsWith('.sql')) {
+    fs.unlinkSync(path.join(distDir, file))
+  }
 }) 
