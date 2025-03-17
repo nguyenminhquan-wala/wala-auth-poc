@@ -1,15 +1,18 @@
+"use strict";
 'use client';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { usePermissions } from '@/hooks/usePermissions';
-export default function Home() {
-    var session = useSession().data;
-    var _a = usePermissions(), hasPermission = _a.hasPermission, role = _a.role, permissions = _a.permissions;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Home;
+var react_1 = require("next-auth/react");
+var usePermissions_1 = require("@/hooks/usePermissions");
+function Home() {
+    var session = (0, react_1.useSession)().data;
+    var _a = (0, usePermissions_1.usePermissions)(), hasPermission = _a.hasPermission, role = _a.role, permissions = _a.permissions;
     if (!session) {
         return (<div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow text-center">
           <h1 className="text-3xl font-bold">Welcome</h1>
           <p className="text-gray-600">Please sign in to continue</p>
-          <button onClick={function () { return signIn('google'); }} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+          <button onClick={function () { return (0, react_1.signIn)('google'); }} className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
             Sign in with Google
           </button>
         </div>
@@ -20,7 +23,7 @@ export default function Home() {
         <div className="bg-white shadow rounded-lg p-6 mb-6">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">Welcome, {session.user.name}</h1>
-            <button onClick={function () { return signOut(); }} className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
+            <button onClick={function () { return (0, react_1.signOut)(); }} className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
               Sign out
             </button>
           </div>

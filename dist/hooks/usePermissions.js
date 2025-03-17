@@ -1,8 +1,11 @@
+"use strict";
 'use client';
-import { useSession } from 'next-auth/react';
-export function usePermissions() {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.usePermissions = usePermissions;
+var react_1 = require("next-auth/react");
+function usePermissions() {
     var _a, _b;
-    var session = useSession().data;
+    var session = (0, react_1.useSession)().data;
     var hasPermission = function (permission) {
         var _a;
         if (!((_a = session === null || session === void 0 ? void 0 : session.user) === null || _a === void 0 ? void 0 : _a.permissions))

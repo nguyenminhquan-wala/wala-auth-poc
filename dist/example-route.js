@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,17 +35,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import NextAuth from 'next-auth';
-import { authProvider } from './example-auth';
-var handler = NextAuth(authProvider.getNextAuthOptions());
-export function GET(request) {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GET = GET;
+exports.POST = POST;
+var next_auth_1 = __importDefault(require("next-auth"));
+var example_auth_1 = require("./example-auth");
+var handler = (0, next_auth_1.default)(example_auth_1.authProvider.getNextAuthOptions());
+function GET(request) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, handler(request)];
         });
     });
 }
-export function POST(request) {
+function POST(request) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, handler(request)];

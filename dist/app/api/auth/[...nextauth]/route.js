@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,13 +35,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { createClient } from '@supabase/supabase-js';
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-var supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GET = GET;
+exports.POST = POST;
+var supabase_js_1 = require("@supabase/supabase-js");
+var next_auth_1 = __importDefault(require("next-auth"));
+var google_1 = __importDefault(require("next-auth/providers/google"));
+var supabase = (0, supabase_js_1.createClient)(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 var authOptions = {
     providers: [
-        GoogleProvider({
+        (0, google_1.default)({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
@@ -141,15 +148,15 @@ var authOptions = {
         strategy: 'jwt',
     },
 };
-var handler = NextAuth(authOptions);
-export function GET(request) {
+var handler = (0, next_auth_1.default)(authOptions);
+function GET(request) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, handler(request)];
         });
     });
 }
-export function POST(request) {
+function POST(request) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, handler(request)];

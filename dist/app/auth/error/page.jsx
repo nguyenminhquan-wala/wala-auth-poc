@@ -1,8 +1,14 @@
+"use strict";
 'use client';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-export default function AuthError() {
-    var searchParams = useSearchParams();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = AuthError;
+var navigation_1 = require("next/navigation");
+var link_1 = __importDefault(require("next/link"));
+function AuthError() {
+    var searchParams = (0, navigation_1.useSearchParams)();
     var error = searchParams.get('error');
     return (<div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow text-center">
@@ -11,9 +17,9 @@ export default function AuthError() {
           {error || 'An error occurred during authentication'}
         </p>
         <div className="mt-4">
-          <Link href="/auth/signin" className="text-indigo-600 hover:text-indigo-500">
+          <link_1.default href="/auth/signin" className="text-indigo-600 hover:text-indigo-500">
             Try again
-          </Link>
+          </link_1.default>
         </div>
       </div>
     </div>);
