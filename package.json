@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node build.js",
     "dev": "tsc --watch",
     "lint": "next lint",
     "prepare": "npm run build"
