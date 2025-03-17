@@ -1,10 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 
-// Copy type declarations and SQL files
+// Copy type declarations
 const filesToCopy = [
-  'src/types/next-auth.d.ts',
-  'src/schema.sql'
+  'src/types/next-auth.d.ts'
 ]
 
 filesToCopy.forEach(file => {

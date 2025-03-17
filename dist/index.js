@@ -13,9 +13,6 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.schema = exports.NextAuthProvider = exports.ClientBody = exports.AuthProvider = void 0;
 var AuthProvider_1 = require("./lib/AuthProvider");
@@ -27,5 +24,5 @@ var NextAuthProvider_1 = require("./providers/NextAuthProvider");
 Object.defineProperty(exports, "NextAuthProvider", { enumerable: true, get: function () { return NextAuthProvider_1.NextAuthProvider; } });
 __exportStar(require("./hooks/usePermissions"), exports);
 __exportStar(require("./types/next-auth"), exports);
-var schema_sql_1 = require("./schema.sql");
-Object.defineProperty(exports, "schema", { enumerable: true, get: function () { return __importDefault(schema_sql_1).default; } });
+var schema_1 = require("./schema");
+Object.defineProperty(exports, "schema", { enumerable: true, get: function () { return schema_1.schema; } });
