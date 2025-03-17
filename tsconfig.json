@@ -24,6 +24,6 @@
     "declaration": true,
     "outDir": "dist"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "src/**/*.sql"],
   "exclude": ["node_modules", "dist"]
 }

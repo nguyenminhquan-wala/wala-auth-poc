@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { ClientBody } from '@wala/auth'
+import { ClientBody } from '../components/ClientBody'
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
