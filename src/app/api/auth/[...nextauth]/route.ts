@@ -4,7 +4,6 @@ import GoogleProvider from 'next-auth/providers/google'
 import { Database } from '@/types/supabase'
 import { JWT } from 'next-auth/jwt'
 import { Account, Profile, User } from 'next-auth'
-import { AdapterUser } from '@auth/core/adapters'
 
 const supabase = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -23,7 +22,7 @@ const authOptions: NextAuthOptions = {
       user,
       account,
     }: {
-      user: User | AdapterUser
+      user: User
       account: Account | null
     }) {
       if (account?.provider === 'google') {
@@ -70,7 +69,7 @@ const authOptions: NextAuthOptions = {
       account,
     }: {
       token: JWT
-      user: User | AdapterUser | undefined
+      user: User | undefined
       account: Account | null
     }) {
       if (user && account?.provider === 'google') {
